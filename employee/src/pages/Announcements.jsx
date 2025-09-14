@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useEmployeeAuth } from '../contexts/EmployeeAuthContext';
 import { Bell, Calendar, User, Search, Filter } from 'lucide-react';
+import BASE_URL from '../contexts/Api';
 
 const Announcements = () => {
   const { employee } = useEmployeeAuth();
@@ -26,7 +27,7 @@ const Announcements = () => {
       if (filters.priority) queryParams.append('priority', filters.priority);
       if (filters.search) queryParams.append('search', filters.search);
       
-      const url = `http://localhost:5000/api/employee-announcements?${queryParams}`;
+      const url = `${BASE_URL}/employee-announcements?${queryParams}`;
       console.log('🌐 API URL:', url);
       
       const token = localStorage.getItem('employeeToken');

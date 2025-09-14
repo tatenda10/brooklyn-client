@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useEmployeeAuth } from '../contexts/EmployeeAuthContext';
 import { CreditCard, Download, Eye, Calendar, Filter, Search } from 'lucide-react';
+import BASE_URL from '../contexts/Api';
 
 const Payslips = () => {
   const { employee } = useEmployeeAuth();
@@ -30,7 +31,7 @@ const Payslips = () => {
       if (filters.status) queryParams.append('status', filters.status);
       if (filters.pay_period) queryParams.append('pay_period', filters.pay_period);
       
-      const url = `http://localhost:5000/api/employee-payroll/${employee.id}?${queryParams}`;
+      const url = `${BASE_URL}/employee-payroll/${employee.id}?${queryParams}`;
       console.log('🌐 API URL:', url);
       
       const token = localStorage.getItem('employeeToken');

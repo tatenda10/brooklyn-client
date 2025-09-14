@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEmployeeAuth } from '../../contexts/EmployeeAuthContext';
+import BASE_URL from '../../contexts/Api';
 import { 
   User, 
   CreditCard, 
@@ -50,7 +51,7 @@ const Dashboard = () => {
         setClassesError(null);
         hasFetchedClasses.current = true;
         
-        const url = `http://localhost:5000/api/employee-classes/${employee.id}`;
+        const url = `${BASE_URL}/employee-classes/${employee.id}`;
         console.log('🌐 API URL:', url);
         
         const token = localStorage.getItem('employeeToken');
