@@ -1,6 +1,7 @@
 import { Users, BookOpen, BarChart3, Home, Truck, CreditCard, Calculator, ShoppingCart, Package, FileText, Settings, HelpCircle, DollarSign, Megaphone, Calendar, Trophy, PieChart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import logo from '../../assets/logo.png';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -152,6 +153,9 @@ const Dashboard = () => {
     return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="max-w-5xl w-full">
+        <div className="flex justify-center mb-4">
+          <img src={logo} alt="Brooklyn Private School Logo" className="h-16 w-auto" />
+        </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Welcome to Brooklyn Private School</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {filteredNavigationTabs.map((tab) => (
